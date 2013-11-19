@@ -39,7 +39,10 @@ public class ScriptController : MonoBehaviour {
             {
                 foreach (GameObject obj in FindObjectsOfType(typeof(GameObject)))
                 {
-                    obj.SendMessage("Move", hit.point, SendMessageOptions.DontRequireReceiver);
+					var unit = obj.GetComponent(typeof(ISelectable)) as ISelectable;
+					
+					if (unit != null && unit.IsSelected)
+                    	obj.SendMessage("Move", hit.point, SendMessageOptions.DontRequireReceiver);
                 }
             }
         }

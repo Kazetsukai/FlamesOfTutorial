@@ -29,6 +29,14 @@ public class TankingScript : MonoBehaviour, ISelectable, IMovable {
     {
         _selected = false;
     }
+	
+	public bool IsSelected
+	{
+		get 
+		{
+			return _selected;
+		}
+	}
 
     public void Move(Vector3 destination)
     {
